@@ -1,13 +1,13 @@
 import os
 import shutil
 
-
-KEY_FOR_SEARCH = input('Input wanted keyword\n')
-PATH_FOR_COPY = input('Input directory for copying search files\n')
+print("\nFiles with 'txt' extension can be searched!\n")
+KEY_FOR_SEARCH = input('Input keyword to search: \n')
+PATH_FOR_COPY = input('Input directory for copying search files: \n')
 
 
 def search():
-    for adress, dirs, files in os.walk(input('Input start directory\n')):
+    for adress, dirs, files in os.walk(input('Input start directory: \n')):
         if adress == PATH_FOR_COPY:
             continue
         for file in files:
@@ -44,4 +44,3 @@ for i in search():
     except Exception as e:
         with open(os.path.join(PATH_FOR_COPY, 'errors.txt'), 'a') as r:
             r.write(str(e) + '\n' + i + '\n')
-
